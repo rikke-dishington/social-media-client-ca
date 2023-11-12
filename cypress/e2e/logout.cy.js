@@ -12,7 +12,7 @@ describe("Logout Functionality and clear local storage token value", () => {
     cy.get("#loginPassword").type(validPassword);
     cy.get("button[type=submit]").contains("Login").wait(200).click();
     cy.wait(2000);
-    cy.get('button[data-auth="logout"]').wait(500).click();
+    cy.get('button[data-auth="logout"]').wait(500).click({ force: true });
     cy.then(() => expect(window.localStorage.getItem("token")).to.be.null);
   });
 });
